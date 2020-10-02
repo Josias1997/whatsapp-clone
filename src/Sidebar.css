@@ -53,3 +53,8 @@
     flex: 1;
     overflow: scroll;
 }
+
+a {
+    text-decoration: none !important;
+    color: black;
+}
