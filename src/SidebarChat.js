@@ -3,6 +3,7 @@ import './SidebarChat.css';
 import { Avatar } from "@material-ui/core";
 import { db } from './firebase';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase';
 
 function SidebarChat({ addNewChat, name, id }) {
     const [seed, setSeed] = useState('');
@@ -30,7 +31,8 @@ function SidebarChat({ addNewChat, name, id }) {
         if (roomName) {
             // do some clever database stuff ...
             db.collection('rooms').add({
-                name: roomName
+                name: roomName,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
             });
         }
     };
